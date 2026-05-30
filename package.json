@@ -4,6 +4,7 @@
   "description": "Advanced M3U8 playlist parser for HLS streaming with filtering, resolution options, and metadata extraction",
   "main": "index.js",
   "scripts": {
+    "test": "node test.js",
     "postversion": "git push && git push --tags",
     "example:basic": "node examples/basic.js",
     "example:advanced": "node examples/advanced.js",
