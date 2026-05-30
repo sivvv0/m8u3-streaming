@@ -1,50 +1,23 @@
-# m3u8-stream-list
-[![travis](https://travis-ci.org/ReklatsMasters/m3u8-stream-list.svg)](https://travis-ci.org/ReklatsMasters/m3u8-stream-list)
-[![npm](https://img.shields.io/npm/v/m3u8-stream-list.svg)](https://npmjs.org/package/m3u8-stream-list)
-[![license](https://img.shields.io/npm/l/m3u8-stream-list.svg)](https://npmjs.org/package/m3u8-stream-list)
-[![downloads](https://img.shields.io/npm/dm/m3u8-stream-list.svg)](https://npmjs.org/package/m3u8-stream-list)
+# m3u8-streaming
 
-Return all awailable streams from m3u8 playlist
+[![npm version](https://badge.fury.io/js/m3u8-streaming.svg)](https://www.npmjs.com/package/m3u8-streaming)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/node/v/m3u8-streaming.svg)](https://nodejs.org)
 
-## Example
+Advanced M3U8 playlist parser for HLS streaming with filtering, resolution options, and metadata extraction.
 
-#### input
-```
-#EXTM3U
-#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=3454382,RESOLUTION=1280x720,VIDEO="chunked"
-http://1.example.com/index-live.m3u8
-#EXT-X-STREAM-INF:BANDWIDTH=1760000,RESOLUTION=1280x720,VIDEO="high"
-http://2.example.com/index-live.m3u8
-```
+## Features
 
-#### output
-```json
-[ 
-  { "BANDWIDTH": "3454382",
-    "RESOLUTION": "1280x720",
-    "VIDEO": "chunked",
-    "url": "http://1.example.com/index-live.m3u8" 
-  },
-  { "BANDWIDTH": "1760000",
-    "RESOLUTION": "1280x720",
-    "VIDEO": "high",
-    "url": "http://2.example.com/index-live.m3u8"
-  }
-]
-```
+- 🚀 **Simple API** - Easy to use with sensible defaults
+- 🎯 **Resolution Filtering** - Filter streams by minimum resolution
+- 📊 **Bitrate Selection** - Automatically select highest/lowest bitrate streams
+- 🔗 **URL Resolution** - Resolve relative URLs with base URL support
+- 📝 **Metadata Extraction** - Extract encryption keys, date ranges, and more
+- 🛡️ **Error Handling** - Graceful fallbacks with optional strict mode
+- 🔍 **Verbose Logging** - Debug parsing issues easily
+- ⚡ **Lightweight** - Minimal dependencies
 
-## Usage
+## Installation
 
-```js
-const m3u8 = require('m3u8-stream-list')
-const fs = require('fs')
-const playlist = fs.readdirSync('test.m3u8', 'utf8')
-
-console.log(m3u8(playlist))
-```
-
-## API
-#### **`module.exports = (data: String|Buffer): {url: string, ...}[]`**
-
-## License
-MIT, 2016 (c) Dmitry Tsvettsikh
+```bash
+npm install m3u8-streaming
