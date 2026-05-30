@@ -5,10 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo 'No tests yet' && exit 0",
-    "postversion": "git push && git push --tags",
-    "example:basic": "node examples/basic.js",
-    "example:advanced": "node examples/advanced.js",
-    "example:player": "node examples/player.js"
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "m3u8",
