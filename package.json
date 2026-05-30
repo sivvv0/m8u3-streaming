@@ -1,11 +1,13 @@
 {
   "name": "m3u8-streaming",
-  "version": "0.11.0",
-  "description": "Advanced M3U8 playlist parser with filtering, resolution options, and metadata extraction",
+  "version": "1.0.0",
+  "description": "Advanced M3U8 playlist parser for HLS streaming with filtering, resolution options, and metadata extraction",
   "main": "index.js",
   "scripts": {
     "test": "node test.js",
-    "example": "node examples/basic.js"
+    "example:basic": "node examples/basic.js",
+    "example:advanced": "node examples/advanced.js",
+    "example:player": "node examples/player.js"
   },
   "keywords": [
     "m3u8",
@@ -13,14 +15,28 @@
     "playlist",
     "parser",
     "streaming",
-    "video"
+    "video",
+    "adaptive-bitrate",
+    "m3u8-parser",
+    "hls-streaming"
   ],
-  "author": "s1vann",
+  "author": "Your Name <your.email@example.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/m3u8-streaming.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/m3u8-streaming/issues"
+  },
+  "homepage": "https://github.com/yourusername/m3u8-streaming#readme",
+  "engines": {
+    "node": ">=12.0.0"
+  },
   "dependencies": {
     "m3u8-reader": "^1.0.0"
   },
-  "engines": {
-    "node": ">=12.0.0"
+  "devDependencies": {
+    "jest": "^29.0.0"
   }
 }
