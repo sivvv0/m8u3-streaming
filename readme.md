@@ -111,5 +111,36 @@ function selectStream(playlist, availableBandwidth) {
 const stream = selectStream(playlist, 2500000); // 2.5 Mbps
 console.log(`Playing: ${stream.url}`);
 ```
-## Api Docs
+# API Documentation
 
+## `parseM3U8(playlist, [options])`
+
+### Options
+
+| Option | Type | Default | Description |
+|---|---|---|---|
+| `includeRelativeUrls` | `boolean` | `false` | Include relative URLs |
+| `includeKeys` | `boolean` | `false` | Include encryption key info |
+| `includeDiscontinuity` | `boolean` | `false` | Include discontinuity markers |
+| `includeMap` | `boolean` | `false` | Include `EXT-X-MAP` |
+| `includeDateRange` | `boolean` | `false` | Include `EXT-X-DATERANGE` |
+| `includeByteRange` | `boolean` | `false` | Include byte range info |
+| `includeProgramDateTime` | `boolean` | `false` | Include program date-time |
+| `baseUrl` | `string` | `''` | Base URL for relative paths |
+| `filterByResolution` | `boolean` | `false` | Filter by resolution |
+| `minResolution` | `object` | `{ width: 0, height: 0 }` | Minimum resolution |
+| `preferHighestBitrate` | `boolean` | `false` | Return highest bitrate |
+| `filterStream` | `function` | `null` | Custom filter function |
+| `outputFormat` | `string` | `'array'` | `'array'` or `'object'` |
+| `strictMode` | `boolean` | `false` | Throw on errors |
+| `verbose` | `boolean` | `false` | Log parsing info |
+
+## Example
+
+```js
+const result = parseM3U8(playlist, {
+  includeKeys: true,
+  includeMap: true,
+  preferHighestBitrate: true,
+  outputFormat: 'object'
+});
