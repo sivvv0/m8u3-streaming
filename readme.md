@@ -56,7 +56,36 @@ const lowBandwidth = parseM3U8(playlist, {
   filterStream: (stream) => (stream.BANDWIDTH || 0) < 2000000
 });
 ```
+## Relative URLs
 ```js
+const streams = parseM3U8(playlist, {
+  baseUrl: 'https://cdn.example.com/',
+  includeRelativeUrls: true
+});
+```
+## Complate Metadata
+```js
+const detailed = parseM3U8(playlist, {
+  includeKeys: true,
+  includeMap: true,
+  verbose: true
+});
+```
+## Helper Function
+```js
+const parseM3U8 = require('m3u8-streaming');
+
+// Parse resolution string
+const res = parseM3U8.parseResolution('1920x1080');
+// => { width: 1920, height: 1080 }
+
+// Parse byte range
+const range = parseM3U8.parseByteRange('123456@456');
+// => { length: 123456, offset: 456 }
+
+// Resolve URL
+const url = parseM3U8.resolveUrl('https://example.com/', 'video.m3u8');
+// => 'https://example.com/video.m3u8'
 ```
 ## Api Docs
 
