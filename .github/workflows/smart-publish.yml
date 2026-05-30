@@ -19,16 +19,14 @@ jobs:
           node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
       
-      - name: Smart install (works with or without lock file)
+      - name: Smart install
         run: |
-          # Check if package-lock.json exists
           if [ -f "package-lock.json" ]; then
             echo "📦 package-lock.json found, using npm ci"
             npm ci
           else
             echo "📦 No package-lock.json found, using npm install"
             npm install
-            # Optionally generate lock file
             npm install --package-lock-only
           fi
       
@@ -36,6 +34,6 @@ jobs:
         run: npm test
       
       - name: Publish to npm
-        run: npm publish --access=public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+          npm publish --access=public
