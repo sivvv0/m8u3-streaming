@@ -36,3 +36,6 @@ const streams = parseM3U8(playlist);
 console.log(streams);
 // Output: Array of stream objects with URL and metadata
 ```
+
+## Api Docs
+
