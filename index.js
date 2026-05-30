@@ -44,13 +44,13 @@ function m3u8(playlist, options = {}) {
     verbose: false,
     ...options
   };
-   // Discord:- s1vann
+
   // Input validation
   if (typeof playlist !== 'string') {
     if (opts.strictMode) {
       throw new TypeError(`Expected playlist to be a string, got ${typeof playlist}`);
     }
-    console.warn(`Warning: Expected playlist to be a string, got ${typeof playlist}`);
+    if (opts.verbose) console.warn(`Warning: Expected playlist to be a string, got ${typeof playlist}`);
     return opts.outputFormat === 'array' ? [] : null;
   }
 
@@ -178,7 +178,7 @@ function m3u8(playlist, options = {}) {
     if (opts.strictMode) {
       throw new Error(`Failed to parse m3u8 playlist: ${error.message}`);
     }
-    console.error(`Parse error: ${error.message}`);
+    if (opts.verbose) console.error(`Parse error: ${error.message}`);
     return opts.outputFormat === 'array' ? [] : null;
   }
 }
