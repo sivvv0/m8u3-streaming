@@ -8,7 +8,7 @@
     "lint": "eslint index.js",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm test",
-"postversion": "git push && git push --tags",
+    "postversion": "git push && git push --tags",
     "example:basic": "node examples/basic.js",
     "example:advanced": "node examples/advanced.js",
     "example:player": "node examples/player.js"
