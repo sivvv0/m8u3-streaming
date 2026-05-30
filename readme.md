@@ -36,6 +36,27 @@ const streams = parseM3U8(playlist);
 console.log(streams);
 // Output: Array of stream objects with URL and metadata
 ```
-
+## HD only stream 
+```js
+const hdStreams = parseM3U8(playlist, {
+  filterByResolution: true,
+  minResolution: { width: 1280, height: 720 }
+});
+```
+## Best Quality stream
+```js
+const best = parseM3U8(playlist, {
+  preferHighestBitrate: true,
+  outputFormat: 'object'
+});
+```
+## Custom Filter
+```js
+const lowBandwidth = parseM3U8(playlist, {
+  filterStream: (stream) => (stream.BANDWIDTH || 0) < 2000000
+});
+```
+```js
+```
 ## Api Docs
 
