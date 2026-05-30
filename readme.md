@@ -87,5 +87,29 @@ const range = parseM3U8.parseByteRange('123456@456');
 const url = parseM3U8.resolveUrl('https://example.com/', 'video.m3u8');
 // => 'https://example.com/video.m3u8'
 ```
+## Real-Worled Example
+```js
+const parseM3U8 = require('m3u8-streaming');
+
+// Adaptive bitrate selection
+function selectStream(playlist, availableBandwidth) {
+  const streams = parseM3U8(playlist);
+  let selected = streams[0];
+  
+  for (const stream of streams) {
+    if (stream.BANDWIDTH <= availableBandwidth) {
+      selected = stream;
+    } else {
+      break;
+    }
+  }
+  
+  return selected;
+}
+
+// Usage
+const stream = selectStream(playlist, 2500000); // 2.5 Mbps
+console.log(`Playing: ${stream.url}`);
+```
 ## Api Docs
 
