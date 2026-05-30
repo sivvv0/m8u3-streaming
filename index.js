@@ -44,7 +44,7 @@ function m3u8(playlist, options = {}) {
     verbose: false,
     ...options
   };
-
+   // Discord:- s1vann
   // Input validation
   if (typeof playlist !== 'string') {
     if (opts.strictMode) {
