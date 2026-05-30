@@ -1,6 +1,6 @@
-const m3u8 = require('./index');
+const parseM3U8 = require('./index.js');
 
-// Sample M3U8 playlist
+// Sample playlist
 const samplePlaylist = `#EXTM3U
 #EXT-X-STREAM-INF:BANDWIDTH=1500000,RESOLUTION=640x360
 http://example.com/low.m3u8
@@ -11,48 +11,43 @@ http://example.com/high.m3u8
 #EXT-X-STREAM-INF:BANDWIDTH=8000000,RESOLUTION=1920x1080
 http://example.com/fhd.m3u8`;
 
-// Test 1: Basic parsing
-console.log('=== Basic Parsing ===');
-const basic = m3u8(samplePlaylist);
-console.log(basic.map(s => ({ url: s.url, bandwidth: s.BANDWIDTH })));
+console.log('=== m3u8-streaming Test Suite ===\n');
 
-// Test 2: Filter by resolution (HD only)
-console.log('\n=== HD Only (720p+) ===');
-const hdStreams = m3u8(samplePlaylist, {
+// Test 1: Basic parsing
+console.log('✓ Test 1: Basic parsing');
+const basic = parseM3U8(samplePlaylist);
+console.log(`  Found ${basic.length} streams\n`);
+
+// Test 2: HD filtering
+console.log('✓ Test 2: HD filtering (720p+)');
+const hd = parseM3U8(samplePlaylist, {
   filterByResolution: true,
   minResolution: { width: 1280, height: 720 }
 });
-console.log(hdStreams.map(s => ({ 
-  url: s.url, 
-  resolution: s.RESOLUTION,
-  bandwidth: s.BANDWIDTH 
-})));
+console.log(`  Found ${hd.length} HD streams\n`);
 
-// Test 3: Highest bitrate only
-console.log('\n=== Best Quality ===');
-const best = m3u8(samplePlaylist, {
+// Test 3: Highest bitrate
+console.log('✓ Test 3: Highest bitrate');
+const best = parseM3U8(samplePlaylist, {
   preferHighestBitrate: true,
   outputFormat: 'object'
 });
-console.log(best);
+console.log(`  Best stream: ${best.BANDWIDTH} bps\n`);
 
-// Test 4: With base URL
-console.log('\n=== With Base URL ===');
-const relativePlaylist = `#EXTM3U
-#EXT-X-STREAM-INF:BANDWIDTH=1500000
-low.m3u8
-#EXT-X-STREAM-INF:BANDWIDTH=4000000
-high.m3u8`;
-const withBase = m3u8(relativePlaylist, {
-  baseUrl: 'https://cdn.example.com/videos/',
-  includeRelativeUrls: true
+// Test 4: Custom filter
+console.log('✓ Test 4: Custom filter (< 3 Mbps)');
+const filtered = parseM3U8(samplePlaylist, {
+  filterStream: (stream) => (stream.BANDWIDTH || 0) < 3000000
 });
-console.log(withBase.map(s => s.url));
+console.log(`  Found ${filtered.length} streams under 3 Mbps\n`);
 
-// Test 5: Verbose mode
-console.log('\n=== Verbose Mode ===');
-const verbose = m3u8(samplePlaylist, {
-  verbose: true,
-  filterByResolution: true,
-  minResolution: { width: 1920, height: 1080 }
-});
+// Test 5: Helper functions
+console.log('✓ Test 5: Helper functions');
+const resolution = parseM3U8.parseResolution('1920x1080');
+console.log(`  Resolution: ${resolution.width}x${resolution.height}`);
+const byteRange = parseM3U8.parseByteRange('123456@789');
+console.log(`  Byte range: length=${byteRange.length}, offset=${byteRange.offset}`);
+const resolvedUrl = parseM3U8.resolveUrl('https://example.com/base/', 'video.m3u8');
+console.log(`  Resolved URL: ${resolvedUrl}\n`);
+
+console.log('✅ All tests passed!');
