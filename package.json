@@ -24,7 +24,7 @@
     "m3u8-parser",
     "hls-streaming"
   ],
-  "author": "Your Name <your.email@example.com>",
+  "author": "s1vann sivandev@tuta.io",
   "license": "MIT",
   "repository": {
     "type": "git",
