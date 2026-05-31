@@ -24,7 +24,7 @@ npm install m3u8-streaming
 ```
 ## Quick start
 ```js
-const parseM3U8 = require('m3u8-streaming');
+const parseM3U8 = require('@s1vann/m3u8');
 
 const playlist = `#EXTM3U
 #EXT-X-STREAM-INF:BANDWIDTH=1500000,RESOLUTION=640x360
@@ -134,13 +134,3 @@ console.log(`Playing: ${stream.url}`);
 | `outputFormat` | `string` | `'array'` | `'array'` or `'object'` |
 | `strictMode` | `boolean` | `false` | Throw on errors |
 | `verbose` | `boolean` | `false` | Log parsing info |
-
-## Example
-
-```js
-const result = parseM3U8(playlist, {
-  includeKeys: true,
-  includeMap: true,
-  preferHighestBitrate: true,
-  outputFormat: 'object'
-});
