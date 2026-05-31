@@ -1,6 +1,6 @@
 {
   "name": "@s1vann/m3u8",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Advanced M3U8 playlist parser for HLS streaming with filtering, resolution options, and metadata extraction",
   "main": "index.js",
   "type": "module",
