@@ -1,5 +1,5 @@
 {
-  "name": "m3u8-streaming",
+  "name": "@s1vann/m3u8",
   "version": "1.0.0",
   "description": "Advanced M3U8 playlist parser for HLS streaming with filtering, resolution options, and metadata extraction",
   "main": "index.js",
