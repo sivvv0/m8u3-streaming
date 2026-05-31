@@ -73,7 +73,7 @@ const detailed = parseM3U8(playlist, {
 ```
 ## Helper Function
 ```js
-const parseM3U8 = require('m3u8-streaming');
+const parseM3U8 = require('@s1vann/m3u8');
 
 // Parse resolution string
 const res = parseM3U8.parseResolution('1920x1080');
@@ -89,7 +89,7 @@ const url = parseM3U8.resolveUrl('https://example.com/', 'video.m3u8');
 ```
 ## Real-Worled Example
 ```js
-const parseM3U8 = require('m3u8-streaming');
+const parseM3U8 = require('@s1vann/m3u8');
 
 // Adaptive bitrate selection
 function selectStream(playlist, availableBandwidth) {
