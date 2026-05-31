@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "Advanced M3U8 playlist parser for HLS streaming with filtering, resolution options, and metadata extraction",
   "main": "index.js",
+  "type": "module",
+  "private": false,
   "scripts": {
     "prepublishOnly": "npm test",
     "test": "echo 'No tests yet' && exit 0",
