@@ -1,6 +1,6 @@
 # m3u8-streaming
 
-[![npm version](https://badge.fury.io/js/@s1vann/m3u8.svg)](https://www.npmjs.com/package/@s1vann/m3u8)
+[![npm version]([https://badge.fury.io/js/@s1vann/m3u8.svg](https://travis-ci.org/ReklatsMasters/m3u8-stream-list.svg))](https://www.npmjs.com/package/@s1vann/m3u8)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/node/v/@s1vann/m3u8.svg)](https://nodejs.org)
 
