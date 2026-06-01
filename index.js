@@ -48,7 +48,7 @@ function m3u8(playlist, options = {}) {
   // Input validation
   if (typeof playlist !== 'string') {
     if (opts.strictMode) {
-      throw new TypeError(`Expected playlist to be a string, got ${typeof playlist}`);
+      throw new TypeError(`Expected Playlist to be a string, got ${typeof playlist}`);
     }
     if (opts.verbose) console.warn(`Warning: Expected playlist to be a string, got ${typeof playlist}`);
     return opts.outputFormat === 'array' ? [] : null;
