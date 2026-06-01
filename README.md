@@ -1,6 +1,7 @@
 # m3u8-streaming
 
-[![Publish to npm](https://github.com/sivvv0/m3u8-streaming/actions/workflows/npm-publish.yml/badge.svg?branch=main)](https://github.com/sivvv0/m3u8-streaming/actions/workflows/npm-publish.yml)
+[![NPM](https://nodei.co/npm/@s1vann/m3u8.png?mini=true)](https://npmjs.org/package/@s1vann/m3u8)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/node/v/@s1vann/m3u8.svg)](https://nodejs.org)
 
