@@ -21,7 +21,7 @@ Advanced M3U8 playlist parser for HLS streaming with filtering, resolution optio
 ## Installation
 
 ```bash
-npm install m3u8-streaming
+npm install @s1vann/m3u8
 ```
 ## Quick start
 ```js
